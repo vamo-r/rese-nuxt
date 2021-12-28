@@ -1,15 +1,26 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'rese-nuxt',
+    titleTemplate: '%s | Rese',
+    title: '飲食店予約アプリ',
+    htmlAttrs: {
+      lang: 'ja',
+      prefix: 'og: http://ogp.me/ns#'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { hid: 'description', name: 'description', content: '架空の店舗です。' },
+      { name: 'format-detection', content: 'telephone=no' },
+      { hid: 'og:description', property: 'og:description', content: '架空の店舗です。' },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'Rese' },
+      { hid: 'og:image', property: 'og:image', content: '/icon.png' },
+      { hid: 'og:url', property: 'og:url', content: '' },
+      { hid: 'og:type', property: 'og:type', content: 'website' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'shortcut icon', href: '/favicon.ico' }
     ]
   },
 
@@ -47,7 +58,7 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en'
+      lang: 'ja'
     }
   },
 
