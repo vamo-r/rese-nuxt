@@ -14,7 +14,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.19.3",
     "install": "^0.13.0",
-    "node-sass": "^7.0.1",
+    "node-sass": "6",
     "npm": "^8.3.0",
     "nuxt": "^2.15.8",
     "sass-loader": "10",
