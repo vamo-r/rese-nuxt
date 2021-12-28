@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    container_name: rese-docker-nuxt
+    build:
+      context: .docker/web
+      dockerfile: Dockerfile
+    environment:
+      PORT: '3000'
+      API_URL: 'http://localhost/api'
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
+    restart: always
+    networks:
+      - rese-docker
+
+networks:
+  rese-docker:
+    external: true
