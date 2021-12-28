@@ -49,6 +49,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+
+    '@nuxtjs/style-resources',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -62,6 +64,13 @@ export default {
     manifest: {
       lang: 'ja'
     }
+  },
+
+  // StyleResources module
+  styleResources: {
+    scss: [
+      '~/assets/sass/_variables.scss'
+    ]
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
