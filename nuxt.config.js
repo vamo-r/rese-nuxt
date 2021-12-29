@@ -24,6 +24,12 @@ export default {
     ]
   },
 
+  router: {
+    middleware: [
+      'auth'
+    ]
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     { src: '~/assets/sass/common.scss' }
@@ -51,12 +57,14 @@ export default {
     '@nuxtjs/pwa',
 
     '@nuxtjs/style-resources',
+
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: process.env.API_URL,
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -71,6 +79,36 @@ export default {
     scss: [
       '~/assets/sass/_variables.scss'
     ]
+  },
+
+  // auth-next module
+  auth: {
+    localStorage: false,
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      callback: false,
+      home: '/'
+    },
+    strategies: {
+      'laravelJWT': {
+        provider: 'laravel/jwt',
+        tokenType: 'bearer',
+        url: process.env.API_URL,
+        token: {
+          maxAge: 60 * 60
+        },
+        refreshToken: {
+          maxAge: 20160 * 60
+        },
+        endpoints: {
+          login: { url: '/login', method: 'post', propertyName: 'access_token' },
+          logout: { url: '/logout', method: 'post' },
+          refresh: { url: '/refresh', method: 'post' , propertyName: 'access_token' },
+          user: { url: '/user', method: 'get', propertyName: 'user' },
+        }
+      }
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
