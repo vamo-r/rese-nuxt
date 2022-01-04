@@ -6,7 +6,7 @@
           <nuxt-link :to="{ name: 'index' }">Rese</nuxt-link>
         </h1>
       </div>
-      <div class="header_search" v-show="inputSearch">
+      <div class="header_search">
         <search-keyword v-model="inputKeyword"/>
       </div>
       <nav class="header_nav">
@@ -36,11 +36,6 @@ export default {
   props: {
     keyword: {
       type: String
-    }
-  },
-  data() {
-    return {
-      inputSearch: false
     }
   },
   computed: {
