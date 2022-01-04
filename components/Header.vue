@@ -17,22 +17,7 @@
           <li class="header_nav-logout" v-if="!$auth.loggedIn">
             <nuxt-link :to="{ name: 'register' }">新規登録</nuxt-link>
           </li>
-          <li class="header_nav-login" v-if="$auth.loggedIn">
-            <button @click="toggleNav()">
-              <p>ログイン中：{{ $auth.user.name }}さん</p>
-              <span class="icon" :class="[authNav ? 'open': '']"></span>
-            </button>
-            <transition name="open">
-              <ul class="header_nav-auth" v-if="authNav">
-                <li>
-                  <nuxt-link :to="{ name: 'mypage' }">マイページ</nuxt-link>
-                </li>
-                <li>
-                  <button @click="logout()">ログアウト</button>
-                </li>
-              </ul>
-            </transition>
-          </li>
+          <header-nav/>
         </ul>
       </nav>
     </div>
@@ -41,10 +26,12 @@
 
 <script>
 import SearchKeyword from './SearchKeyword.vue'
+import HeaderNav from './HeaderNav.vue'
 
 export default {
   components: {
-    SearchKeyword
+    SearchKeyword,
+    HeaderNav
   },
   props: {
     keyword: {
@@ -53,16 +40,8 @@ export default {
   },
   data() {
     return {
-      inputSearch: false,
-      authNav: false
+      inputSearch: false
     }
-  },
-  mounted() {
-    this.showSearch();
-    window.addEventListener('click', this.closeAuthNav);
-  },
-  beforeDestroy() {
-    window.removeEventListener('click', this.closeAuthNav);
   },
   computed: {
     inputKeyword: {
@@ -72,28 +51,6 @@ export default {
       set(value) {
         this.$emit('update:keyword', value)
       }
-    }
-  },
-  methods: {
-    showSearch() {
-      if (this.$route.path === '/') {
-        this.inputSearch = true;
-      } else {
-        this.inputSearch = false;
-      }
-    },
-    toggleNav() {
-      this.authNav = !this.authNav;
-    },
-    closeAuthNav(event) {
-      if (this.$auth.loggedIn) {
-        if (!this.$el.querySelector('.header_nav-login').contains(event.target)) {
-          this.authNav = false;
-        }
-      }
-    },
-    async logout() {
-      await this.$auth.logout();
     }
   }
 }

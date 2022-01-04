@@ -12,6 +12,9 @@ export default {
   props: {
     keyword: String
   },
+  mounted() {
+    this.showSearch();
+  },
   computed: {
     inputKeyword: {
       get() {
@@ -19,6 +22,15 @@ export default {
       },
       set(value) {
         this.$emit('input', value)
+      }
+    }
+  },
+  methods: {
+    showSearch() {
+      if (this.$route.path === '/') {
+        this.inputSearch = true;
+      } else {
+        this.inputSearch = false;
       }
     }
   }
