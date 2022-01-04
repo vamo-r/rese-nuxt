@@ -487,3 +487,15 @@ template {
 [hidden] {
   display: none;
 }
+
+/*---------------destyle.css end---------------*/
+
+html {
+  font-size: 14px;
+  .container {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 5%;
+  }
+}
