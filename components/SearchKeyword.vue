@@ -1,5 +1,5 @@
 <template>
-  <div class="search">
+  <div class="search" v-show="inputSearch">
     <input placeholder="店舗名検索"
       v-if="$auth.loggedIn"
       v-model="inputKeyword"
@@ -11,6 +11,11 @@
 export default {
   props: {
     keyword: String
+  },
+  data() {
+    return {
+      inputSearch: false
+    }
   },
   mounted() {
     this.showSearch();
