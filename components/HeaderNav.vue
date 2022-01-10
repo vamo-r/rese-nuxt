@@ -105,4 +105,20 @@ li.header_nav-login {
     }
   }
 }
+@keyframes open {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.open-enter-active {
+  animation: open .2s;
+}
+.open-leave-active {
+  animation: open .2s linear reverse;
+}
 </style>
