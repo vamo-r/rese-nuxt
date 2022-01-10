@@ -1,6 +1,6 @@
 <template>
   <li class="header_nav-login" v-if="$auth.loggedIn">
-    <button @click="toggleNav()">
+    <button class="header_nav-btn" @click="toggleNav()">
       <p>ログイン中：{{ $auth.user.name }}さん</p>
       <span class="icon" :class="[authNav ? 'open': '']"></span>
     </button>
@@ -35,10 +35,8 @@ export default {
       this.authNav = !this.authNav;
     },
     closeAuthNav(event) {
-      if (this.$auth.loggedIn) {
-        if (!this.$el.querySelector('.header_nav-login').contains(event.target)) {
-          this.authNav = false;
-        }
+      if (!this.$el.querySelector('.header_nav-btn').contains(event.target)) {
+        this.authNav = false;
       }
     },
     async logout() {
