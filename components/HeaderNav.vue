@@ -25,7 +25,9 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('click', this.closeAuthNav);
+    if (this.$auth.loggedIn) {
+      window.addEventListener('click', this.closeAuthNav);
+    }
   },
   beforeDestroy() {
     window.removeEventListener('click', this.closeAuthNav);
