@@ -49,8 +49,18 @@ export default {
     padding: 5px 10px;
     background: #fff;
     border-radius: 5px;
-    font-size: 1.4rem;
+    font-size: 14px;
     color: #000;
+  }
+}
+main {
+  .container {
+    .search {
+      margin: 50px 0 0;
+      @include pc{
+        display: none;
+      }
+    }
   }
 }
 </style>
