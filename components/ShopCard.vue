@@ -47,7 +47,7 @@ export default {
   @include flex(flex-start, center);
   flex-wrap: wrap;
   width: 100%;
-  margin: 50px auto;
+  padding: 50px 0;
   @include tab {
     justify-content: space-between;
   }
@@ -58,7 +58,7 @@ export default {
     border-radius: 5px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
     @include pc {
-      min-width: 240px;
+      min-width: 200px;
       max-width: calc(24% - 1rem);
     }
     @include tab {
