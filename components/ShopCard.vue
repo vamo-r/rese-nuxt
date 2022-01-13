@@ -42,7 +42,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .shop {
   @include flex(flex-start, center);
   flex-wrap: wrap;
@@ -53,7 +53,7 @@ export default {
   }
   li {
     overflow: hidden;
-    margin: 10px;
+    margin: 5px;
     background: #fff;
     border-radius: 5px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
@@ -62,8 +62,8 @@ export default {
       max-width: calc(24% - 1rem);
     }
     @include tab {
-      min-width: 165px;
-      max-width: calc(45% - 1rem);
+      min-width: 135px;
+      max-width: calc(50% - 1rem);
     }
     .shop_image {
       a {
@@ -78,8 +78,13 @@ export default {
         font-size: 20px;
       }
       p {
-        display: inline-block;
         margin: 10px 0 0;
+        @include pc {
+          display: inline-block;
+        }
+        @include tab {
+          display: block;
+        }
       }
       & + p {
         display: inline-block;
@@ -92,8 +97,9 @@ export default {
         a {
           padding: 8px;
           background: #3560f6;
-          color: #fff;
           border-radius: 3px;
+          font-size: 14px;
+          color: #fff;
         }
       }
     }
