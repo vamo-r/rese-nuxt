@@ -44,8 +44,10 @@ export default {
       this.reservations = response.data.reservations_data;
     },
     async reserveDelete($shop_id) {
-      await this.$axios.$delete('/reservation', {
-        shop_id: $shop_id
+      await this.$axios.delete('/reservation', {
+        data: {
+          shop_id: $shop_id
+        }
       });
     }
   }
@@ -73,7 +75,7 @@ export default {
           font-size: 20px;
         }
         button {
-          @include flex(center, flex-start);
+          @include flex(center, center);
           width: 30px;
           height: 30px;
           border: 2px solid #fff;
