@@ -5,7 +5,7 @@
       <li v-for="(reservation, index) in reservations" :key="reservation.id">
         <div class="reservation_title">
           <h3>予約{{ index + 1 }}</h3>
-          <button @click="reserveDelete(reservation.id)">×</button>
+          <button @click="reserveDelete(reservation.id)">キャンセル/削除</button>
         </div>
         <div class="reservation_text">
           <p>店舗名</p>
@@ -58,6 +58,9 @@ export default {
 .reservations {
   width: 50%;
   margin: 0 10px;
+  @include tab {
+    width: 95%;
+  }
   h2{
     font-size: 24px;
     font-weight: bold;
@@ -76,11 +79,10 @@ export default {
         }
         button {
           @include flex(center, center);
-          width: 30px;
-          height: 30px;
+          padding: 5px;
           border: 2px solid #fff;
-          border-radius: 50%;
-          font-size: 20px;
+          border-radius: 5px;
+          font-size: 14px;
         }
       }
       .reservation_text {

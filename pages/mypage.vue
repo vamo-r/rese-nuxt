@@ -41,9 +41,15 @@ main {
   .container {
     @include flex(center, flex-start);
     margin: 30px auto;
+    @include tab {
+      display: block;
+    }
     .likes {
       width: 50%;
       margin: 0 10px;
+      @include tab {
+        width: 95%;
+      }
       h2{
         font-size: 24px;
         font-weight: bold;
