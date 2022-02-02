@@ -48,7 +48,7 @@ main {
       width: 50%;
       margin: 0 10px;
       @include tab {
-        width: 95%;
+        width: 94%;
       }
       h2{
         font-size: 24px;
