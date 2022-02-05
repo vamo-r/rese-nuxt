@@ -1,69 +1,52 @@
-# rese-nuxt
+# Rese
+飲食店予約アプリのフロントエンドリポジトリです。  
+実際のアプリケーションは[こちら](https://rese.vercel.app/)からどうぞ。  
+Dockerを使用して構築した為、動作確認がしたい方はDockerをご使用ください。  
+同時にバックエンドリポジトリをクローンし、同様にDockerで立ち上げる必要があります。  
+このリポジトリはVercelにデプロイしています。  
+  
+また、アカウントの削除機能は実装されていませんので、  
+一度登録したアカウントは**削除できません！**  
+ログイン画面からゲストユーザーにてログインできますので、そちらからご利用ください。  
+  
+バックエンドリポジトリは[こちら](https://github.com/vamo-r/rese-laravel)です。
 
-## Build Setup
+## 構築環境
+* Nuxt:v2.15.8
+
+## ページ一覧
+* 店舗一覧ページ（トップページ）
+* ログインページ
+* ユーザー登録ページ
+* サンクスページ
+* 店舗詳細ページ
+* 予約完了ページ
+
+## 使い方
 
 ```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
+git clone https://github.com/vamo-r/rese-nuxt.git
+または
+git clone git@github.com:vamo-r/rese-nuxt.git
 ```
+```bash
+cd rese-nuxt
+```
+```bash
+docker compose up --build
+```
+```bash
+npm install
+```
+```bash
+docker compose exec web yarn dev
+```
+※CORSの関係上、バックエンドリポジトリをクローンしたままの状態ですと、  
+http://localhost:3000/ でのみアクセスが可能です。  
+http://127.0.0.1:3000/ ではアクセス出来ませんのでご承知ください。
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+## メモ
+随時更新・修正していきます。
 
-## Special Directories
-
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
-
-### `assets`
-
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
-
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+## 開発者 & ライセンス
+* [vamo-r](https://twitter.com/vamo__r)
