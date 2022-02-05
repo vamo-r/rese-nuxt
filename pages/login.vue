@@ -18,11 +18,16 @@
               </ValidationProvider>
             </div>
             <div class="login_send">
-              <button type="submit" :disabled="ObserverProps.invalid || !ObserverProps.validated">
+              <button type="submit" class="btn_user" :disabled="ObserverProps.invalid || !ObserverProps.validated">
                 ログイン
               </button>
             </div>
           </ValidationObserver>
+        </form>
+        <form @submit.prevent="guestLogin()">
+          <button type="submit" class="btn_guest">
+            ゲストでログイン
+          </button>
         </form>
       </div>
     </div>
@@ -56,6 +61,22 @@ export default {
       } catch {
         alert('ご入力されたEメール又はパスワードが確認できませんでした。\n再度、Eメール及びパスワードのご確認をお願いします。');
       }
+    },
+    async guestLogin() {
+      try {
+        const guestEmail = 'guest@user.com'
+        const guestPW = 'giMuEUX0#x_&'
+
+        await this.$auth.loginWith('laravelJWT', {
+          data: {
+            email: guestEmail,
+            password: guestPW
+          }
+        });
+        this.$router.push({ name: 'index' });
+      } catch {
+        alert('ご入力されたEメール又はパスワードが確認できませんでした。\n再度、Eメール及びパスワードのご確認をお願いします。');
+      }
     }
   }
 }
@@ -64,7 +85,7 @@ export default {
 <style lang="scss" scoped>
 .login {
   margin: 50px auto;
-  padding: 0 0 50px;
+  padding: 0 0 40px;
   background: #fff;
   border-radius: 3px;
   box-shadow: 2px 2px 2px #999;
@@ -98,9 +119,10 @@ export default {
     }
   }
   .login_send {
-    @include flex(flex-end, center);
     margin: 30px 5% 0 0;
-    button {
+    .btn_user {
+      display: block;
+      margin: 0 0 0 auto;
       padding: 4px 12px;
       background: #3560f6;
       border: none;
@@ -111,6 +133,13 @@ export default {
         background: #8fa8ff;
       }
     }
+  }
+  .btn_guest {
+    display: block;
+    margin: 10px 5% 0 auto;
+    border: none;
+    color: #3560f6;
+    text-decoration: underline;
   }
 }
 </style>
