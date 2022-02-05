@@ -1,7 +1,7 @@
 <template>
   <div class="reservations">
     <h2>予約状況</h2>
-    <ul>
+    <ul v-if="reservations.length > 0">
       <li v-for="(reservation, index) in reservations" :key="reservation.id">
         <div class="reservation_title">
           <h3>予約{{ index + 1 }}</h3>
@@ -25,6 +25,9 @@
         </div>
       </li>
     </ul>
+    <div v-else>
+      <p class="noReservations">予約はありません</p>
+    </div>
   </div>
 </template>
 
@@ -110,6 +113,11 @@ export default {
         }
       }
     }
+  }
+  p.noReservations {
+    margin: 20px 0;
+    padding: 50px 0;
+    text-align: center;
   }
 }
 </style>
