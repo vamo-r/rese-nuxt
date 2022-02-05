@@ -33,6 +33,9 @@ git clone git@github.com:vamo-r/rese-nuxt.git
 cd rese-nuxt
 ```
 ```bash
+touch .env
+```
+```bash
 docker compose up --build
 ```
 ```bash
