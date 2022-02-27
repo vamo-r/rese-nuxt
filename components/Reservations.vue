@@ -46,10 +46,10 @@ export default {
       const response = await this.$axios.get('/reservation');
       this.reservations = response.data.reservations_data;
     },
-    async reserveDelete($shop_id) {
+    async reserveDelete($reservation_id) {
       await this.$axios.delete('/reservation', {
         data: {
-          shop_id: $shop_id
+          id: $reservation_id
         }
       });
     }
